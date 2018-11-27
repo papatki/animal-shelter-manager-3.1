@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Shelter Manager</title>
+</head>
+<body>
+<div align="center">
+    <form action="#" th:action="@{/editSave}" th:object="${animal}" method="POST">
+        <input type="hidden" th:value="${id}" th:field="*{id}" />
+        <table>
+            <tr>
+                <td><label>ID</label></td>
+                <td>
+                    <input type="text" th:field="*{id}" disabled="true"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Name</label></td>
+                <td>
+                    <input type="text" th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Type</label></td>
+                <td>
+                    <input type="text" th:field="*{type}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Description</label></td>
+                <td>
+                    <textarea type="text" th:field="*{description}"/>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

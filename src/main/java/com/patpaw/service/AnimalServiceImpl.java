@@ -27,7 +27,8 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     public Animal findById(long id) {
-        return animalRepository.findById(id);
+
+        return animalRepository.getOne(id);
     }
 
     @Override
