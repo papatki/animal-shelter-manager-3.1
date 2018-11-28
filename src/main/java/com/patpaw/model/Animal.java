@@ -2,23 +2,20 @@ package com.patpaw.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 
-@Entity
-@Table(name = "animals")
-@EntityListeners(AuditingEntityListener.class)
+@Document(collection = "animals")
 @Data
 @EqualsAndHashCode(of = "id")
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String id;
 
     @Size(min = 3, max = 30)
     private String name;

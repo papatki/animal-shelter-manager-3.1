@@ -19,11 +19,11 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <tr th:block th:each="animal : ${list}">
+        <tr th:block th:each="animal : ${animals}">
 
             <td th:text="${animal.name}"></td>
             <td th:text="${animal.type}"></td>
-            <!--<td><a href="#" th:href="@{'/viewAnimal/' + ${animal.id}}">View</a></td>-->
+            <td><a href="#" th:href="@{'/showAnimal/' + ${animal.id}}">View</a></td>
             <td><a href="#" th:href="@{'/editAnimal/' + ${animal.id}}">Edit</a></td>
             <td><a href="#" th:href="@{'/deleteAnimal/' + ${animal.id}}">Delete</a></td>
 

@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface AnimalService {
 
-    Animal save(Animal newAnimal);
+    Animal saveOrUpdate(Animal newAnimal);
 
     List<Animal> findAll();
 
-    Animal findById(long id);
+    Animal getById(String id);
 
-    void delete(Animal animalToDelete);
+    void delete(String id);
 
 }

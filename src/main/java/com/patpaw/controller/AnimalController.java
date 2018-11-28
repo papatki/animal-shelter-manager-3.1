@@ -4,16 +4,14 @@ import com.patpaw.model.Animal;
 import com.patpaw.service.AnimalServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class AnimalController {
@@ -22,7 +20,7 @@ public class AnimalController {
     AnimalServiceImpl animalService;
 
     @RequestMapping(value = "/addAnimal", method = RequestMethod.GET)
-    public String newAnimal(ModelMap model) {
+    public String newAnimal(Model model) {
         Animal animal = new Animal();
         model.addAttribute("animal",animal);
         return "addAnimal";
@@ -35,41 +33,45 @@ public class AnimalController {
             System.out.println("Error");
             return "addAnimal";
         }
-
-        animalService.save(animal);
-        return "redirect:/viewAnimals";
+        Animal savedAnimal = animalService.saveOrUpdate(animal);
+        return "redirect:/viewAnimals" + savedAnimal.getId();
     }
 
     @RequestMapping(value = "/viewAnimals")
-    public ModelAndView getAll() {
-        List<Animal> list = animalService.findAll();
-        return new ModelAndView("viewAnimals", "list", list);
+    public String getAll(Model model) {
+        model.addAttribute("animals", animalService.findAll());
+        return  "viewAnimals";
+    }
+
+    @RequestMapping(value = "/showAnimal/{id}")
+    public String show(@PathVariable String id, Model model) {
+        model.addAttribute("animal", animalService.getById(id));
+        return "showAnimal";
     }
 
     @RequestMapping(value = "/editAnimal/{id}")
-    public String edit(@PathVariable long id, ModelMap model) {
-        Animal animal = animalService.findById(id);
+    public String edit(@PathVariable String id, Model model) {
+        Animal animal = animalService.getById(id);
         model.addAttribute("animal", animal);
         return "editAnimal";
     }
 
     @RequestMapping(value = "/editSave", method = RequestMethod.POST)
-    public ModelAndView editSave(@ModelAttribute("animal") Animal a) {
+    public String editSave(@ModelAttribute("animal") Animal a) {
 
-        Animal animal = animalService.findById(a.getId());
+        Animal animal = animalService.getById(a.getId());
         animal.setName(a.getName());
         animal.setType(a.getType());
         animal.setDescription(a.getDescription());
 
-        animalService.save(animal);
-        return new ModelAndView("redirect:/viewAnimals");
+        animalService.saveOrUpdate(animal);
+        return "redirect:/viewAnimals";
     }
 
     @RequestMapping(value = "/deleteAnimal/{id}", method = RequestMethod.DELETE)
-    public ModelAndView delete(@PathVariable long id) {
-        Animal animal = animalService.findById(id);
-        animalService.delete(animal);
-        return  new ModelAndView("redirect:/viewAnimals");
+    public String delete(@PathVariable String id) {
+        animalService.delete(id);
+        return  "redirect:/viewAnimals";
     }
 
 

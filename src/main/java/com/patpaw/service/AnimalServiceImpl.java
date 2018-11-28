@@ -5,6 +5,7 @@ import com.patpaw.model.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,24 +16,26 @@ public class AnimalServiceImpl implements AnimalService {
 
 
     @Override
-    public Animal save(Animal newAnimal) {
-        return animalRepository.save(newAnimal);
+    public Animal saveOrUpdate(Animal newAnimal) {
+        animalRepository.save(newAnimal);
+        return newAnimal;
     }
 
     @Override
     public List<Animal> findAll() {
-        return animalRepository.findAll();
+        List<Animal> animals = new ArrayList<>();
+        animalRepository.findAll().forEach(animals::add);
+        return animals;
     }
 
 
     @Override
-    public Animal findById(long id) {
-
-        return animalRepository.getOne(id);
+    public Animal getById(String id) {
+        return animalRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void delete(Animal animalToDelete) {
-        animalRepository.delete(animalToDelete);
+    public void delete(String id) {
+        animalRepository.deleteById(id);
     }
 }

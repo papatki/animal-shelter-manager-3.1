@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Shelter Manager</title>
+</head>
+<body>
+<div align="center">
+    <table>
+        <tr>
+            <td><label>Name</label></td>
+            <td  th:text="${animal.name}"></td>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Type</label></td>
+            <td  th:text="${animal.type}"></td>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Description</label></td>
+            <td th:text="${animal.description}"></td>
+            </td>
+        </tr>
+    </table>
+
+    <a th:href="@{/viewAnimals/}">Back to list of animals</a>
+</div>
+</body>
+</html>
