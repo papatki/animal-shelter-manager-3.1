@@ -34,7 +34,7 @@ public class AnimalController {
             return "addAnimal";
         }
         Animal savedAnimal = animalService.saveOrUpdate(animal);
-        return "redirect:/viewAnimals" + savedAnimal.getId();
+        return "redirect:/showAnimal" + savedAnimal.getId();
     }
 
     @RequestMapping(value = "/viewAnimals")
