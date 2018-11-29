@@ -14,7 +14,6 @@ public class AnimalServiceImpl implements AnimalService {
     @Autowired
     AnimalRepository animalRepository;
 
-
     @Override
     public Animal saveOrUpdate(Animal newAnimal) {
         animalRepository.save(newAnimal);
@@ -28,7 +27,6 @@ public class AnimalServiceImpl implements AnimalService {
         return animals;
     }
 
-
     @Override
     public Animal getById(String id) {
         return animalRepository.findById(id).orElse(null);
@@ -37,5 +35,10 @@ public class AnimalServiceImpl implements AnimalService {
     @Override
     public void delete(String id) {
         animalRepository.deleteById(id);
+    }
+
+    @Override
+    public void insert(Animal animal) {
+        animalRepository.insert(animal);
     }
 }

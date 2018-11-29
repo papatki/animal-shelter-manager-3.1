@@ -19,22 +19,26 @@ public class AnimalController {
     @Autowired
     AnimalServiceImpl animalService;
 
-    @RequestMapping(value = "/addAnimal", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/addAnimal")
     public String newAnimal(Model model) {
         Animal animal = new Animal();
+        animalService.insert(animal);
         model.addAttribute("animal",animal);
+
+
         return "addAnimal";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/addAnimal", method = RequestMethod.POST)
     public String saveAnimal(@Valid Animal animal, BindingResult result) {
 
         if (result.hasErrors()) {
             System.out.println("Error");
             return "addAnimal";
         }
-        Animal savedAnimal = animalService.saveOrUpdate(animal);
-        return "redirect:/showAnimal" + savedAnimal.getId();
+        Animal toSave = animalService.saveOrUpdate(animal);
+        return "redirect:/showAnimal/" + toSave.getId();
     }
 
     @RequestMapping(value = "/viewAnimals")
@@ -68,7 +72,7 @@ public class AnimalController {
         return "redirect:/viewAnimals";
     }
 
-    @RequestMapping(value = "/deleteAnimal/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteAnimal/{id}")
     public String delete(@PathVariable String id) {
         animalService.delete(id);
         return  "redirect:/viewAnimals";

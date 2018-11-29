@@ -6,16 +6,9 @@
 </head>
 <body>
 <div align="center">
-    <form action="#" th:action="@{/save}" th:object="${animal}" method="POST">
+    <form action="#" th:action="@{/addAnimal}" th:object="${animal}" method="POST">
         <input type="hidden" th:field="*{id}" />
         <table>
-            <tr>
-                <td><label>ID</label></td>
-                <td>
-                    <input type="text" th:field="*{id}" disabled="true"/>
-
-                </td>
-            </tr>
             <tr>
                 <td><label>Name</label></td>
                 <td>

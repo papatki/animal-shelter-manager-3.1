@@ -14,4 +14,6 @@ public interface AnimalService {
 
     void delete(String id);
 
+    void insert(Animal animal);
+
 }
