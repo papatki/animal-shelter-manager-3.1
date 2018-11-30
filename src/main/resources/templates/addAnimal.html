@@ -3,38 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Animal Shelter Manager</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
-<div align="center">
+<div class="container">
+    <div id="info">
+        <h3>Add new animal to database.</h3>
+    </div>
     <form action="#" th:action="@{/addAnimal}" th:object="${animal}" method="POST">
         <input type="hidden" th:field="*{id}" />
-        <table>
+        <table align="center">
             <tr>
                 <td><label>Name</label></td>
                 <td>
                     <input type="text" th:field="*{name}"/>
-                    <label th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"  th:class="'error'">Error in name</label>
+                    <label class="error-info"  th:if="${#fields.hasErrors('name')}"  th:errors="*{name}"  th:class="'error'">Error in name</label>
                 </td>
             </tr>
             <tr>
                 <td><label>Type</label></td>
                 <td>
                     <input type="text" th:field="*{type}"/>
-                    <label th:if="${#fields.hasErrors('type')}"  th:errors="*{type}"  th:class="'error'">Error in type</label>
+                    <label class="error-info"  th:if="${#fields.hasErrors('type')}"  th:errors="*{type}"  th:class="'error'">Error in type</label>
                 </td>
             </tr>
             <tr>
                 <td><label>Description</label></td>
                 <td>
                     <textarea type="text" th:field="*{description}"/>
-                    <label th:if="${#fields.hasErrors('description')}"  th:errors="*{description}"  th:class="'error'">Error in description</label>
+                    <label class="error-info" th:if="${#fields.hasErrors('description')}"  th:errors="*{description}"  th:class="'error'">Error in description</label>
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Submit"/></td>
+                <td><input class="btn btn-outline-secondary" type="submit" value="Submit"/></td>
             </tr>
         </table>
     </form>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
 </html>

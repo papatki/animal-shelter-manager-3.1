@@ -1,0 +1,30 @@
+* {
+    font-family: Lato;
+}
+
+.container {
+    align-content: center;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    font-family: Lato;
+    padding-top: 20px;
+
+}
+ #info {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a {
+    color: antiquewhite;
+}
+
+.card {
+    width: 18rem;
+    align-content: center;
+
+}
+.go-back {
+    margin-top: 15px;
+}

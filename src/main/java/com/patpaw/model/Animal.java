@@ -24,12 +24,12 @@ public class Animal {
     private String type;
 
     @NotBlank
-    @Size(min = 3, max = 30)
+
     private String description;
 
     public Animal(){}
 
-    public Animal(@Size(min = 3, max = 30) String name, @NotBlank String type, @NotBlank @Size(min = 3, max = 30) String description) {
+    public Animal(@Size(min = 3, max = 30) String name, @NotBlank String type, @NotBlank String description) {
         this.name = name;
         this.type = type;
         this.description = description;

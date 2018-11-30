@@ -11,20 +11,13 @@
 </head>
 <body>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="card">
-            <div class="card-header" th:text="${animal.name}">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title" th:text="${animal.type}"></h5>
-                <p class="card-text" th:text="${animal.description}"></p>
-                <a href="#" th:href="@{'/editAnimal/' + ${animal.id}}" class="btn btn-secondary">Edit</a>
-            </div>
-        </div>
+    <div id="info">
+        <h1>Animal Shelter Manager </h1>
     </div>
 
-    <a class="btn btn-outline-secondary go-back" th:href="@{/viewAnimals/}">Go back</a>
+    <a class="btn btn-outline-secondary" th:href="@{/viewAnimals}">Go to database</a>
 </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
