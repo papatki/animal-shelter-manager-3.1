@@ -1,0 +1,8 @@
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/dao/AnimalRepository.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/Main.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/model/Animal.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/config/WebConfig.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/controller/AnimalController.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/service/AnimalService.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/dbseeder/DbSeeder.java
+/home/patrycja/IdeaProjects/animal-shelter-manager-3.1/src/main/java/com/patpaw/service/AnimalServiceImpl.java

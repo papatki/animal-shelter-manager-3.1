@@ -1,0 +1,7 @@
+com/patpaw/service/AnimalService.class
+com/patpaw/service/AnimalServiceImpl.class
+com/patpaw/dao/AnimalRepository.class
+com/patpaw/model/Animal.class
+com/patpaw/controller/AnimalController.class
+com/patpaw/config/WebConfig.class
+com/patpaw/Main.class
