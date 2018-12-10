@@ -2,6 +2,7 @@ package com.patpaw.service;
 
 
 import com.mongodb.MongoClient;
+import com.patpaw.model.Animal;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 
 import de.flapdoodle.embed.mongo.MongodStarter;
@@ -48,26 +49,30 @@ public class AnimalServiceImplTest {
 
     @Test
     public void saveOrUpdate() {
-        fail("Not yet implemented");
+        Animal animal = new Animal("Pet", "dog", "nice");
+        serviceImpl.saveOrUpdate(animal);
+        int animalsInCollection = template.findAll(Animal.class).size();
+        assertEquals("In collection should be 4 animals. And there are " + animalsInCollection, 4, animalsInCollection);
+
+
     }
 
     @Test
     public void findAll() {
-        fail("Not yet implemented");
     }
 
     @Test
     public void getById() {
-        fail("Not yet implemented");
+
     }
 
     @Test
     public void delete() {
-        fail("Not yet implemented");
+
     }
 
     @Test
     public void insert() {
-        fail("Not yet implemented");
+
     }
 }
