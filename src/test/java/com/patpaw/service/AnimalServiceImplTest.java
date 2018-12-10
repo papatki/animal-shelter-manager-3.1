@@ -48,21 +48,26 @@ public class AnimalServiceImplTest {
 
     @Test
     public void saveOrUpdate() {
+        fail("Not yet implemented");
     }
 
     @Test
     public void findAll() {
+        fail("Not yet implemented");
     }
 
     @Test
     public void getById() {
+        fail("Not yet implemented");
     }
 
     @Test
     public void delete() {
+        fail("Not yet implemented");
     }
 
     @Test
     public void insert() {
+        fail("Not yet implemented");
     }
 }
